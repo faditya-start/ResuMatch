@@ -24,7 +24,11 @@ const handler = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.user = token.user as { name?: string | null; email?: string | null; image?: string | null };
+      session.user = token.user as {
+        name?: string | null;
+        email?: string | null;
+        image?: string | null;
+      };
       return session;
     },
   },

@@ -18,6 +18,7 @@ model Resume {
   userId     String
   rawText    String
   embedding  Float[]
+  generatedBullets String[] @default([])
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   bullets       Bullet[]

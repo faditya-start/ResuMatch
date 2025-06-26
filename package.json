@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.10.1",
+    "@react-pdf/renderer": "^4.3.0",
     "formidable": "^3.5.4",
     "mammoth": "^1.9.1",
     "next": "15.3.4",

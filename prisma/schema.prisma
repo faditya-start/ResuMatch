@@ -30,3 +30,13 @@ model Bullet {
 
   Resume Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
 }
+
+model JobDescription {
+  id         String   @id @default(uuid())
+  userId     String
+  title      String
+  content    String
+  embedding  Float[]  // ← hasil embedding dummy / AI
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

@@ -14,12 +14,14 @@ datasource db {
 }
 
 model Resume {
-  id        String   @id @default(uuid())
-  userId    String
-  rawText   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  bullets   Bullet[]
+  id         String   @id @default(uuid())
+  userId     String
+  rawText    String
+  embedding  Float[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  bullets       Bullet[]
+  matchResults  MatchResult[] @relation("ResumeToMatchResult")
 }
 
 model Bullet {
@@ -36,7 +38,18 @@ model JobDescription {
   userId     String
   title      String
   content    String
-  embedding  Float[]  // ← hasil embedding dummy / AI
+  embedding  Float[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  matchResults MatchResult[] @relation("JobToMatchResult")
+}
+
+model MatchResult {
+  id                String   @id @default(uuid())
+  resumeId          String
+  jobDescriptionId  String
+  score             Float
+  createdAt         DateTime @default(now())
+  Resume            Resume         @relation("ResumeToMatchResult", fields: [resumeId], references: [id])
+  JobDescription    JobDescription @relation("JobToMatchResult", fields: [jobDescriptionId], references: [id])
 }

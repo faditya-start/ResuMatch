@@ -29,8 +29,9 @@ export default async function MatchesPage() {
             </div>
             <div className="mt-2 md:mt-0">
               <p className="text-sm">Score: <span className="font-semibold">{match.score.toFixed(2)}</span></p>
-              {/* Tambahkan tombol lihat detail jika kamu punya rute detail */}
-              {/* <Link href={`/dashboard/matches/${match.id}`} className="text-blue-500 underline">Detail</Link> */}
+              <Link href={`/dashboard/matches/${match.id}`} className="text-blue-500 underline mt-2 block">
+                Detail
+              </Link>
             </div>
           </div>
         ))}

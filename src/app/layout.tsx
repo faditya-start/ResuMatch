@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -36,7 +36,7 @@ export default function RootLayout({
               <Link href="/upload-resume" className="hover:text-blue-600">
                 Upload Resume
               </Link>
-              <Link href="/upload-job" className="hover:text-blue-600">
+              <Link href="/upload-jobdesc" className="hover:text-blue-600">
                 Upload Job
               </Link>
               <Link href="/dashboard/matches" className="hover:text-blue-600">
